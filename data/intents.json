@@ -1,0 +1,104 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "howdy", "what's up", "yo"],
+      "responses": ["Hello! Welcome to our e-commerce support. How can I assist you?", "Hi there! Ready to help with your shopping needs!", "Hey! What's on your mind today?", "Good to see you! How can I make your day better?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you", "later", "take care", "exit", "quit"],
+      "responses": ["Goodbye! Thanks for reaching out.", "See you later! Happy shopping!", "Take care and come back soon!", "Bye-bye! Have a great day!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thank you", "thanks", "appreciate it", "ty", "thank u", "gracias"],
+      "responses": ["You're very welcome!", "Happy to help!", "No problem at all!", "Anytime!"]
+    },
+    {
+      "tag": "order_status",
+      "patterns": ["where is my order", "track my order", "order status", "when will my order arrive", "check my order", "order update", "is my order shipped", "delivery status"],
+      "responses": ["Please provide your order ID, and I'll check the status.", "I can track your order! What's the order ID?", "Let me look up your order. Could you share the order number?", "Your order status is just a click away—please share your order ID."]
+    },
+    {
+      "tag": "order_cancellation",
+      "patterns": ["cancel my order", "how to cancel order", "stop my order", "delete my order", "can i cancel my purchase", "undo my order"],
+      "responses": ["I can help with that! Please provide your order ID to cancel.", "To cancel your order, share your order ID, and I'll process it.", "Let’s cancel that order. What’s the order number?", "Order cancellation is easy—just give me your order ID."]
+    },
+    {
+      "tag": "order_modification",
+      "patterns": ["change my order", "modify my order", "update my order", "edit my purchase", "can i change my order details", "add item to order"],
+      "responses": ["I’ll help you modify your order. Please provide the order ID and details of the change.", "Let’s update your order! Share the order ID and what you’d like to change.", "Order changes? No problem! What’s the order ID and the new details?"]
+    },
+    {
+      "tag": "product_availability",
+      "patterns": ["is this product in stock", "check product availability", "do you have this item", "is item available", "stock status", "can i buy this product"],
+      "responses": ["Please share the product name or ID, and I’ll check its availability.", "Let me see if that item’s in stock. What’s the product name?", "I’ll check the stock for you. Could you provide the product details?"]
+    },
+    {
+      "tag": "product_details",
+      "patterns": ["tell me about this product", "product info", "details of item", "what is this product", "product description", "specifications of item"],
+      "responses": ["I’d be happy to share product details! Please provide the product name or ID.", "Let me pull up the info. What’s the product you’re curious about?", "Tell me the product name, and I’ll give you all the details!"]
+    },
+    {
+      "tag": "product_recommendation",
+      "patterns": ["recommend a product", "suggest an item", "what should i buy", "product suggestions", "best product for me", "what’s popular"],
+      "responses": ["I’d love to suggest something! What type of product are you looking for?", "Let’s find the perfect item. Any specific category or use in mind?", "Tell me what you need, and I’ll recommend the best products!"]
+    },
+    {
+      "tag": "return_policy",
+      "patterns": ["how to return", "return policy", "can i return my order", "return process", "how do i send back", "return item"],
+      "responses": ["You can return your order within 30 days. Please share your order ID to start.", "Our return policy allows 30-day returns. Need help with the process? Share your order ID.", "Returns are easy! Provide your order ID, and I’ll guide you."]
+    },
+    {
+      "tag": "return_status",
+      "patterns": ["status of my return", "where is my return", "track my return", "return update", "when will my return be processed"],
+      "responses": ["Let me check your return status. Please provide the return ID or order ID.", "I’ll track your return. Could you share the return or order ID?", "Your return update is coming up! What’s the return ID?"]
+    },
+    {
+      "tag": "refund_status",
+      "patterns": ["where is my refund", "refund status", "when will i get my refund", "track my refund", "refund update"],
+      "responses": ["I’ll check on your refund. Please provide the order ID or return ID.", "Let’s track your refund. Could you share the relevant ID?", "Your refund status is just a moment away—please share the order ID."]
+    },
+    {
+      "tag": "payment_methods",
+      "patterns": ["what payment methods do you accept", "payment options", "can i pay with paypal", "how to pay", "accepted payments"],
+      "responses": ["We accept credit cards, PayPal, and bank transfers. Need help with payment?", "You can pay via card, PayPal, or transfer. Which one are you using?", "Our payment options include cards and PayPal. Any specific method in mind?"]
+    },
+    {
+      "tag": "payment_issue",
+      "patterns": ["payment failed", "can’t pay", "payment error", "issue with payment", "why payment declined"],
+      "responses": ["Sorry about the payment issue! Please share the order ID and error details.", "Let’s fix that payment problem. What error did you see, and what’s the order ID?", "Payment issues? Provide the order ID, and I’ll help resolve it."]
+    },
+    {
+      "tag": "account_login",
+      "patterns": ["can’t log in", "login issue", "forgot password", "how to log in", "account access problem"],
+      "responses": ["Let’s get you logged in! Please share your email, and I’ll guide you.", "Login trouble? Provide your email, and I’ll help with access or password reset.", "I’ll fix your login issue. What’s the email tied to your account?"]
+    },
+    {
+      "tag": "account_update",
+      "patterns": ["update my account", "change my details", "edit profile", "update address", "change email"],
+      "responses": ["I can help update your account. Please provide your email and the details to change.", "Let’s edit your profile. What’s your email and the new info?", "Account updates are easy! Share your email and what you’d like to update."]
+    },
+    {
+      "tag": "shipping_info",
+      "patterns": ["how much is shipping", "shipping cost", "delivery fees", "how long is shipping", "shipping time"],
+      "responses": ["Shipping costs depend on your location. Please share your zip code.", "I’ll check shipping details! Could you provide your delivery address or zip code?", "Let me get you shipping info. What’s your location?"]
+    },
+    {
+      "tag": "promotion",
+      "patterns": ["any discounts", "promo codes", "current sales", "coupon code", "special offers", "deals"],
+      "responses": ["Let me check for promotions! Do you have a specific product or category in mind?", "We’ve got some great deals! Tell me what you’re shopping for.", "I’ll find you a discount. Any particular items you’re looking at?"]
+    },
+    {
+      "tag": "complaint",
+      "patterns": ["file a complaint", "i’m not happy", "bad service", "issue with order", "problem with product"],
+      "responses": ["I’m sorry to hear that! Please share your order ID and issue details.", "Let’s resolve this. What’s the problem, and what’s your order ID?", "I’ll help with your complaint. Could you provide the order ID and details?"]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["I’m not sure I understood that. Could you rephrase?", "Sorry, I didn’t catch that. Can you clarify?", "Hmm, I’m a bit confused. Could you say that differently?", "Let’s try that again—what do you mean?"]
+    }
+  ]
+}
