@@ -1,11 +1,25 @@
 import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+import os
 
 class NLPProcessor:
     def __init__(self):
+        # Set NLTK data path to a writable directory in Streamlit Cloud
+        nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+        nltk.data.path.append(nltk_data_path)
+        
+        # Download required NLTK data if not present
+        try:
+            nltk.data.find('tokenizers/punkt')
+        except LookupError:
+            nltk.download('punkt', download_dir=nltk_data_path)
+        
+        try:
+            nltk.data.find('corpora/wordnet')
+        except LookupError:
+            nltk.download('wordnet', download_dir=nltk_data_path)
+        
         self.lemmatizer = WordNetLemmatizer()
     
     def preprocess(self, text):
@@ -16,16 +30,10 @@ class NLPProcessor:
         Returns:
             list: List of processed tokens
         """
-        # Convert to lowercase
-        text = text.lower()
-        # Tokenize
-        tokens = word_tokenize(text)
-        # Lemmatize tokens
-        tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
-        return tokens
-
-# Example usage (for testing)
-if __name__ == "__main__":
-    processor = NLPProcessor()
-    sample_text = "Where is my order?"
-    print(processor.preprocess(sample_text))  # Output: ['where', 'is', 'my', 'order', '?']
+        try:
+            text = text.lower()
+            tokens = word_tokenize(text)
+            tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
+            return tokens
+        except Exception as e:
+            raise Exception(f"Error in text preprocessing: {str(e)}")
