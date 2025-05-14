@@ -13,12 +13,12 @@ class NLPProcessor:
         try:
             nltk.data.find('tokenizers/punkt')
         except LookupError:
-            nltk.download('punkt', download_dir=nltk_data_path)
+            nltk.download('punkt_tab', download_dir=nltk_data_path)
         
         try:
             nltk.data.find('corpora/wordnet')
         except LookupError:
-            nltk.download('wordnet', download_dir=nltk_data_path)
+            nltk.download('wordnet_tab', download_dir=nltk_data_path)
         
         self.lemmatizer = WordNetLemmatizer()
     
