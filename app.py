@@ -6,8 +6,12 @@ st.title("E-Commerce Chatbot")
 st.write("Ask about orders, returns, products, or anything else! Type 'exit' to end the session.")
 
 # Initialize conversation manager
-if 'manager' not in st.session_state:
-    st.session_state.manager = ConversationManager('data/intents.json')
+try:
+    if 'manager' not in st.session_state:
+        st.session_state.manager = ConversationManager('data/intents.json')
+except Exception as e:
+    st.error(f"Failed to initialize chatbot: {str(e)}")
+    st.stop()
 
 # Initialize conversation history
 if 'history' not in st.session_state:
@@ -18,13 +22,19 @@ user_input = st.text_input("You:", key="user_input", placeholder="Type your mess
 
 # Process input when submitted
 if user_input:
-    if user_input.lower() == 'exit':
-        st.session_state.history.append(("You", user_input))
-        st.session_state.history.append(("Chatbot", "Goodbye! Thanks for chatting."))
-    else:
-        # Get response from conversation manager
-        response = st.session_state.manager.handle_input(user_input)
-        # Update history
+    try:
+        if user_input.lower() == 'exit':
+            st.session_state.history.append(("You", user_input))
+            st.session_state.history.append(("Chatbot", "Goodbye! Thanks for chatting."))
+        else:
+            # Get response from conversation manager
+            response = st.session_state.manager.handle_input(user_input)
+            # Update history
+            st.session_state.history.append(("You", user_input))
+            st.session_state.history.append(("Chatbot", response))
+    except Exception as e:
+        st.error(f"Error processing input: {str(e)}")
+        response = "Sorry, something went wrong. Please try again."
         st.session_state.history.append(("You", user_input))
         st.session_state.history.append(("Chatbot", response))
 
@@ -41,11 +51,3 @@ if st.session_state.history:
 if st.button("Clear Chat"):
     st.session_state.history = []
     st.rerun()
-
-
-
-try:
-    response = st.session_state.manager.handle_input(user_input)
-except Exception as e:
-    st.error(f"Error: {str(e)}")
-    response = "Something went wrong. Please try again."
